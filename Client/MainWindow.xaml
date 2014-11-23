@@ -1,0 +1,21 @@
+﻿<Window x:Class="Client.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525"
+        Name="Window"
+        DataContext="{Binding ElementName=Window, Path=MyDataContext}">
+    <Grid>
+        <DataGrid Name="AbonentsGrid"  ItemsSource="{Binding AbonentsData}" 
+                  HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="200" Width="450"
+                  AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Binding="{Binding Path=Id, Mode=TwoWay}"/>
+                <DataGridTextColumn Header="Imię i nazwisko" Binding="{Binding Path=Name, Mode=TwoWay}"/>
+                <DataGridTextColumn Header="Numer telefonu" Binding="{Binding Path=PhoneNumber, Mode=TwoWay}"/>
+                <DataGridTextColumn Header="Nazwa operatora" Binding="{Binding Path=PhoneOperatorData.Name, Mode=TwoWay}"/>
+                <DataGridTextColumn Header="Symbol operatora" Binding="{Binding Path=PhoneOperatorData.Symbol, Mode=TwoWay}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Content="Zwiększ saldo" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="50,0,0,40" Click="IncreaseSaldo"/>
+    </Grid>
+</Window>
